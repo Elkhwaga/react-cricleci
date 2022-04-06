@@ -17,26 +17,26 @@ jobs:
             - v1-dependencies-
 
       - run:
-        name: Install Dependencies
-        command: npm install
+          name: Install Dependencies
+          command: npm install
 
       - save_cache:
-        paths:
-          - node_modules
-        key: v1-dependencies-{{checksum "package.json"}}
+          paths:
+            - node_modules
+          key: v1-dependencies-{{checksum "package.json"}}
 
       # run test!
       - run:
-        name: Run Tests
-        command: npm run test
+          name: Run Tests
+          command: npm run test
 
       - run:
-        name: Run Build
-        command: npm run build
+          name: Run Build
+          command: npm run build
 
       - run:
-        name: Deploy at Netlify
-        command: npm run deploy
+          name: Deploy at Netlify
+          command: npm run deploy
 
 workflows:
   build_deploy:
